@@ -1,15 +1,16 @@
 <h3>Orbit Report</h3>
 <table>
+   
    <tr class="header-row">
-      <th class="sortable">Name</th>
-      <th class="sortable">Type</th>
+      <th class="sortable" (click)="sort('name')" >Name</th>
+      <th class="sortable" (click)="sort('type')">Type</th>
       <th>Operational</th>
       <th>Orbit Type</th>
       <th>Launch Date</th>
    </tr>
-   <tr *ngFor="let dish of satellites">
+   <tr *ngFor="let dish of satellites" [class.warning]=dish.shouldShowWarning()>
        <th>{{dish.name}}</th>
-       <th>{{dish.type}}</th>
+       <th >{{dish.type}}</th>
        <th>{{dish.operational}}</th>
         <th>{{dish.orbitType}}</th>
         <th>{{dish.launchDate}}</th>
