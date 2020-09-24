@@ -9,12 +9,21 @@ import { Satellite } from '../satellite';
 
 export class OrbitListComponent implements OnInit {
   @Input() satellites: Satellite[];
+  
+  zebraColors: boolean = true;
 
   constructor() { }
 
   ngOnInit() {
   }
-  
+
+  zebraFunction() : boolean {
+     if (this.zebraColors === true) {
+        return this.zebraColors = false;
+     } else {
+        return this.zebraColors = true;
+     }
+  }
   sort(column: string): void {
     // array.sort modifies the array, sorting the items based on the given compare function
     this.satellites.sort(function(a: Satellite, b: Satellite): number {
